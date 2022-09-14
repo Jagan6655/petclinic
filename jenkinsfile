@@ -5,26 +5,23 @@ pipeline {
     timeout(time: 1, unit: 'HOURS')
     timestamps()
   }
-  tools {
-    jdk 'JDK 8u162'
-  }
 
   stages {
     stage('checkout') {
       steps {
-        checkout scm
+        git 'https://github.com/Jagan6655/simple-java-maven-app.git'
       }
     }
 
     stage('compile') {
       steps {
-        sh './gradlew clean compileJava'
+        echo "dummy compilation"
       }
     }
 
     stage('test') {
       steps {
-        sh './gradlew test'
+        echo "sample SCM pipeline is successful"
       }
     }
   }
